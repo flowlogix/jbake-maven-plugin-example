@@ -16,6 +16,36 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>com.blazebit</groupId>
+                <artifactId>jbake-maven-plugin</artifactId>
+                <version>1.0.1</version>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <properties>
+                                <site.url>http://localhost:8820/</site.url>
+                            </properties>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>net.java.dev.jna</groupId>
+                        <artifactId>jna</artifactId>
+                        <version>5.12.1</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>net.java.dev.jna</groupId>
+                        <artifactId>jna-platform</artifactId>
+                        <version>5.12.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
 </project>
