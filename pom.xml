@@ -12,45 +12,92 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <asm.version>9.5</asm.version>
+        <groovy.version>3.0.17</groovy.version>
     </properties>
 
     <build>
         <plugins>
             <plugin>
-                <groupId>com.blazebit</groupId>
+                <groupId>org.jbake</groupId>
                 <artifactId>jbake-maven-plugin</artifactId>
-                <version>1.0.1</version>
                 <executions>
                     <execution>
+                        <id>jbake-process-content</id>
                         <phase>generate-resources</phase>
                         <goals>
-                            <goal>build</goal>
+                            <goal>generate</goal>
                         </goals>
-                        <configuration>
-                            <properties>
-                                <site.url>http://localhost:8820/</site.url>
-                            </properties>
-                        </configuration>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>net.java.dev.jna</groupId>
-                        <artifactId>jna</artifactId>
-                        <version>5.12.1</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>net.java.dev.jna</groupId>
-                        <artifactId>jna-platform</artifactId>
-                        <version>5.12.1</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.vladsch.flexmark</groupId>
-                        <artifactId>flexmark-all</artifactId>
-                        <version>0.64.0</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.jbake</groupId>
+                    <artifactId>jbake-maven-plugin</artifactId>
+                    <version>2.7.0-rc.7</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm</artifactId>
+                            <version>${asm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm-commons</artifactId>
+                            <version>${asm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm-analysis</artifactId>
+                            <version>${asm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm-tree</artifactId>
+                            <version>${asm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.ow2.asm</groupId>
+                            <artifactId>asm-util</artifactId>
+                            <version>${asm.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.javassist</groupId>
+                            <artifactId>javassist</artifactId>
+                            <version>3.29.2-GA</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.github.jnr</groupId>
+                            <artifactId>jnr-posix</artifactId>
+                            <version>3.1.16</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.groovy</groupId>
+                            <artifactId>groovy</artifactId>
+                            <version>${groovy.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.groovy</groupId>
+                            <artifactId>groovy-templates</artifactId>
+                            <version>${groovy.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.groovy</groupId>
+                            <artifactId>groovy-xml</artifactId>
+                            <version>${groovy.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.codehaus.groovy</groupId>
+                            <artifactId>groovy-dateutil</artifactId>
+                            <version>${groovy.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 </project>
