@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <asm.version>9.7.1</asm.version>
-        <groovy.version>3.0.22</groovy.version>
+        <groovy.version>3.0.23</groovy.version>
     </properties>
 
     <build>
